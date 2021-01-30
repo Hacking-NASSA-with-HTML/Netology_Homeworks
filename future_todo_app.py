@@ -1,0 +1,46 @@
+HELP = """ Available commands:
+* todo - add task to list
+* help - ask for help
+* print - print tasks from list
+* exit - exit from program """
+
+print(HELP)
+
+todos = dict()  # todos = {}
+
+stop = False
+while not stop:
+
+    command = input("Введите команду: \n")
+    command = command.strip().lower()
+    if command == "help":
+        print(HELP)
+    elif command == "todo":
+        date = input("Введите дату: ")
+        task = input("Введите задачу: ")
+        # если дата есть в словаре
+        if date in todos:  # есть ли ключ date в словаре
+            todos[date].append(task)
+        # если даты нет?
+        else:
+            # todos[date] = []
+            # todos[date].append(task)
+            # можно и вот так:
+            todos[date] = [task]
+        print(f"Задача {task} добавлена на дату {date}")
+    elif command == "print":
+        date = input("Введите дату: ")
+        if date in todos:
+            print(date)
+            for i in todos[date]:
+                # print(f"{i}")  # this works, prints without [], only items
+                print("[] ", i)  # this works too
+            # print(todos[date]) # just to control everything is fine
+        else:
+            print(f"Задач на дату {date} нет")
+    elif command == "exit":
+        print("Спасибо за использование! До свидания!")
+        stop = True
+    else:
+        print("Неизвестная команда")
+        stop = True
