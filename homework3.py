@@ -11,3 +11,16 @@ def find_the_letter(arr, letter):
 
 
 find_the_letter(arr, "y")
+
+
+# Netology variant
+
+# def count_letter(word_list, letter):
+#     result = 0
+#     for word in word_list:
+#         if letter in word:
+#             result += 1
+#     return result
+
+
+# print(count_letter(["python", "c++", "c", "scala", "java"], "c"))
