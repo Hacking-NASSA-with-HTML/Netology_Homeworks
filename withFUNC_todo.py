@@ -2,11 +2,13 @@ HELP = """ Available commands:
 * todo - add task to list
 * help - ask for help
 * print - print tasks from list
-* exit - exit from program """
+* exit - exit from program
+* random - add random task """
 
 print(HELP)
 
 todos = dict()  # todos = {}
+RANDOM_TASK = "Написать письмо"
 
 
 def add_todo(date, task):
@@ -29,6 +31,10 @@ while not stop:
         task = input("Введите задачу: ")
         # <----------------->
         add_todo(date, task)
+    elif command == "random":
+        date = input("Введите дату: ")
+        # <----------------->
+        add_todo(date, RANDOM_TASK)
     elif command == "print":
         date = input("Введите дату: ")
         if date in todos:
