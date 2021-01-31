@@ -8,6 +8,15 @@ print(HELP)
 
 todos = dict()  # todos = {}
 
+
+def add_todo(date, task):
+    if date in todos:
+        todos[date].append(task)
+    else:
+        todos[date] = [task]
+    print(f"Задача {task} добавлена на дату {date}")
+
+
 stop = False
 while not stop:
 
@@ -18,11 +27,8 @@ while not stop:
     elif command == "todo":
         date = input("Введите дату: ")
         task = input("Введите задачу: ")
-        if date in todos:
-            todos[date].append(task)
-        else:
-            todos[date] = [task]
-        print(f"Задача {task} добавлена на дату {date}")
+        # <----------------->
+        add_todo(date, task)
     elif command == "print":
         date = input("Введите дату: ")
         if date in todos:
